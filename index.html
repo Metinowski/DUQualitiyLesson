@@ -3,44 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Metin Aslım</title>
+    <title>Metin Game Studio | Geleceği Oyna</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    </div>
-    <main>
-        <h1>Ben Metin Aslım. Düzce Üniversitesi Bilgisayar Mühendisliği Öğrencisiyim. HTML, CSS, JavaScript, C#, C++, ve Python dillerini öğreniyorum.</h1>
-        <div class="photo-gallery">
-            <img  src="picture.jpg" alt="CV picture" style="width: 128px;height:128;">
-        </div>
-       <div>
-            <nav>
-            <ul>
-                <li>Hobi bahçıvanlığı</li>
-                <li>Tamircilik</li>
-                <li>Kara Kalem Çizim</li>
-            </ul>
-             <ul>
-                <li>English</li>
-                <li>Türkçe</li>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">METIN GAMES</div>
+            <ul class="nav-links">
+                <li><a href="#">Ana Sayfa</a></li>
+                <li><a href="#oyunlar">Oyunlar</a></li>
+                <li><a href="#hakkimizda">Stüdyo</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
             </ul>
         </nav>
+    </header>
 
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Sınırları Zorla, Efsane Ol.</h1>
+            <p>Yeni nesil grafik motorumuzla geliştirilen "Cyber Metin 2077" şimdi erken erişimde.</p>
+            <button class="cta-button">Fragmanı İzle</button>
+        </div>
+        <div class="hero-image">
+            <img src="picture.jpg" alt="Oyun Karakteri" class="responsive-img">
+        </div>
+    </section>
 
-       </div>
-    </main>
+    <section id="oyunlar" class="games-section">
+        <h2>Çıkan Oyunlarımız</h2>
+        <div class="games-grid">
+            <div class="game-card">
+                <h3>Uzay Savaşları</h3>
+                <p>Galaksinin derinliklerinde geçen strateji oyunu.</p>
+            </div>
+            <div class="game-card">
+                <h3>Hız Tutkusu</h3>
+                <p>Gerçekçi fizik motoruyla yarış simülasyonu.</p>
+            </div>
+            <div class="game-card">
+                <h3>Zombi İstilası</h3>
+                <p>Hayatta kalma ve korku elementleri.</p>
+            </div>
+             <div class="game-card">
+                <h3>Retro Pinball</h3>
+                <p>Klasik arcade deneyimi.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="social-media">
-            <a href="https://www.facebook.com/profile.php?id=100051455436246" target="_blank"><img src="facebook.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/asliim_meetiin_105/?hl=tr" target="_blank"><img src="instagram.png" alt="Instagram"></a>
-            <a href="https://www.twitter.com/Metin_Aslim" target="_blank"><img src="twitter.png" alt="Twitter"></a>
-            <a href="https://www.linkedin.com/in/metin-asl%C4%B1m-a65909331/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
-            <a href="https://github.com/Metinowski/" target="_blank">Github</a>
+            <a href="#">Instagram</a> | <a href="#">Twitter</a> | <a href="#">Github</a>
         </div>
-        <br>
-        <div class="copyright">
-            © 2026 Metin Aslım Tüm Hakları Saklıdır.
+        
+        <p>© 2026 Metin Game Studio. Tüm Hakları Saklıdır.</p>
+
+        <div class="task-link">
+            <a href="task2.html" class="pricing-button">💰 Paket Fiyatlarını Gör (Task 2.2)</a>
         </div>
     </footer>
+
 </body>
 </html>
