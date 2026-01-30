@@ -1,0 +1,364 @@
+/* --- Genel Ayarlamalar ve Ortalama --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Kutuların boyut hesaplamasını sabitleme */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #233b61; /* Arka plan rengi raporda yazıldığı üzere  #233b61 */
+    color: #fff; /* Yazılar beyaz */
+    line-height: 1.6;
+}
+
+/* Navbar CSS Bölümü */
+.navbar {
+    background-color: #16213e; /* Daha koyu bir ton */
+    padding: 1rem 2rem;
+    
+    /* FLEXBOX BAŞLANGICI */
+    display: flex; /* Öğeleri yan yana dizer */
+    justify-content: space-between; /* Logo sola, linkler sağa yaslansın */
+    align-items: center; /* Dikeyde ortala */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e74c3c; /* Neon Kırmızı (Vurgu Rengi) */
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none; /* Liste noktalarını kaldır */
+    display: flex; /* Linkleri yan yana diz */
+    gap: 20px; /* Linkler arası boşluk */
+}
+
+.nav-links a {
+    text-decoration: none; /* Alt çizgiyi kaldır */
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e94560; /* Üzerine gelince renk değişsin */
+}
+
+/* --- 2. HERO BÖLÜMÜ (Flexbox & Responsive) --- */
+.hero {
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #0f3460, #1a1a2e); /* Hafif geçişli arkaplan */
+    
+    display: flex; /* İçerikleri esnek kutu yap */
+    
+    /* MOBİL ÖNCELİKLİ (Mobile First) YAKLAŞIM: 
+       Varsayılan olarak mobildeyiz.
+       HTML'de Yazı önce, Resim sonra geliyor.
+       Resmi üste almak için 'column-reverse' kullanıyoruz. */
+    flex-direction: column-reverse; 
+    align-items: center;
+    gap: 2rem;
+    text-align: center; /* Mobilde yazılar ortalı olsun */
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #e94560;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px; /* Resim çok büyümesin */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.5); /* Neon parlama efekti */
+}
+
+.cta-button {
+    background-color: #e94560;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* --- 3. RESPONSIVE KIRILMA NOKTASI (Tablet ve Üstü) --- */
+@media (min-width: 768px) {
+    
+    /* Ekran genişleyince Navbar düzenini koruyoruz (zaten yan yanaydı) */
+
+    /* Hero Bölümü Düzeni Değişiyor */
+    .hero {
+        flex-direction: row; /* Yan yana diz (Solda yazı, sağda resim) */
+        text-align: left; /* Yazıları sola yasla */
+        justify-content: space-between; /* Aralarını aç */
+    }
+
+    .hero-text {
+        flex: 1; /* Mevcut alanın yarısını kapla */
+        padding-right: 2rem;
+    }
+
+    .hero-image {
+        flex: 1; /* Diğer yarıyı kapla */
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* --- 4. GÖREV 2 BAĞLANTISI (Footer Butonu) --- */
+.task-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pricing-button {
+    display: inline-block;
+    background-color: #f39c12; /* Turuncu uyarı rengi */
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+/* --- 5. OYUNLAR GRID (Izgara Sistemi) --- */
+.games-section {
+    padding: 4rem 2rem;
+    text-align: center; /* Başlıkları ortala */
+}
+
+.games-section h2 {
+    font-size: 2rem;
+    color: #e94560; /* Neon kırmızı başlık */
+    margin-bottom: 2rem;
+}
+
+.games-grid {
+    display: grid; /* Izgara sistemini başlatıyoruz */
+    gap: 20px;     /* Kutular arası boşluk */
+    
+    /* MOBİL İÇİN VARSAYILAN (Mobile First) */
+    /* 1fr = Mevcut alanın tamamı (1 sütun) */
+    grid-template-columns: 1fr; 
+}
+
+/* OYUN KARTLARI TASARIMI */
+.game-card {
+    background-color: #16213e; /* Kart zemin rengi */
+    padding: 2rem;
+    border-radius: 15px; /* Köşeleri yuvarla */
+    border: 1px solid #0f3460; /* İnce çerçeve */
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-10px); /* Üzerine gelince yukarı zıplasın */
+    border-color: #e94560; /* Çerçeve parlasın */
+}
+
+.game-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* --- RESPONSIVE KIRILMA NOKTALARI (Grid) --- */
+
+/* Tablet Boyutu (600px ve üzeri) */
+@media (min-width: 600px) {
+    .games-grid {
+        /* repeat(2, 1fr) -> Yan yana 2 eşit sütun */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Masaüstü Boyutu (900px ve üzeri) */
+@media (min-width: 900px) {
+    .games-grid {
+        /* repeat(3, 1fr) -> Yan yana 3 eşit sütun */
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+/* =========================================
+   GÖREV 2.2: GHOST PROTOCOL (Fiyatlandırma)
+   ========================================= */
+
+/* Kapsayıcı Ayarı */
+.main-container {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Sayfayı ortala */
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #e94560;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+/* --- KRİTİK BÖLÜM: FLEXBOX YAPISI --- */
+.pricing-wrapper {
+    /* HTML yapısını değiştirmeden kartları yan yana diziyoruz */
+    display: flex; 
+    justify-content: center; /* Kartları ortada topla */
+    align-items: flex-start; /* Üst hizaları eşit olsun */
+    gap: 30px; /* Kartlar arası boşluk */
+    flex-wrap: wrap; /* Mobilde sığmazsa alt satıra geçsin */
+}
+
+/* --- KART TASARIMI --- */
+.card {
+    background-color: #16213e; /* Koyu tema zemin */
+    border: 1px solid #0f3460;
+    border-radius: 15px;
+    width: 300px; /* Kart genişliği */
+    padding: 0; /* İç boşluğu sıfırla */
+    position: relative; /* Badge (etiket) konumlandırması için gerekli */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Flex item ayarları */
+    display: flex;
+    flex-direction: column; /* Kart içi elemanlar alt alta */
+}
+
+/* Hover Efekti: Kartın üzerine gelince */
+.card:hover {
+    transform: translateY(-15px); /* Yukarı zıpla */
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.2); /* Neon gölge */
+    border-color: #e94560;
+}
+
+/* --- POPÜLER KART (Ortadaki) --- */
+.card.popular {
+    border: 2px solid #e94560; /* Neon kırmızı çerçeve */
+    transform: scale(1.05); /* Diğerlerinden biraz daha büyük */
+    z-index: 1; /* Diğer kartların önüne geçsin */
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.4);
+}
+
+.card.popular:hover {
+    transform: scale(1.1); /* Hoverda daha da büyüsün */
+}
+
+/* En Popüler Etiketi */
+.badge {
+    position: absolute; /* Karta göre konumlan */
+    top: -15px; /* Kartın tepesinden dışarı taşsın */
+    right: 20px;
+    background-color: #e94560;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- KART İÇERİĞİ --- */
+.card-header {
+    padding: 30px 20px;
+    border-bottom: 1px solid #0f3460;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.price-box .amount {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.price-box .currency {
+    font-size: 1.5rem;
+    vertical-align: top;
+}
+
+.card-body {
+    padding: 30px 20px;
+    flex: 1; /* İçeriği doldur */
+}
+
+.card-body ul {
+    list-style: none; /* Madde işaretlerini kaldır */
+    text-align: left;
+}
+
+.card-body li {
+    margin-bottom: 15px;
+    color: #ddd;
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05); /* Hafif çizgi */
+    padding-bottom: 5px;
+}
+
+/* Devre Dışı Özellikler (Silik yazı) */
+.card-body li.disabled {
+    color: #555;
+    text-decoration: line-through; /* Üstü çizili */
+}
+
+.card-footer {
+    padding: 20px;
+}
+
+/* Buton Tasarımı */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #fff;
+    background-color: transparent;
+    border: 2px solid #e94560;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn:hover, .btn-primary {
+    background-color: #e94560; /* Hover olunca veya primary ise içi dolsun */
+    color: #fff;
+}
+
+/* Geri Dön Linki */
+.back-link {
+    margin-top: 40px;
+}
+.back-link a {
+    color: #aaa;
+    text-decoration: none;
+}
+.back-link a:hover {
+    color: #fff;
+}
+
+/* --- Responsive Bölümü (Mobil) --- */
+@media (max-width: 768px) {
+    .pricing-wrapper {
+        flex-direction: column; /* Mobilde tekrar alt alta dizilsin */
+        align-items: center;
+    }
+    
+    .card.popular {
+        transform: scale(1); /* Mobilde büyüklük efektini kaldır */
+        margin: 20px 0;
+    }
+}
+.about-us{
+    background-color: #16213e;
+}
